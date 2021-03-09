@@ -1,0 +1,35 @@
+<h1 style="text-align: center; color: red; font: 15px;">STUDENT RECORDS</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>first Name</th>
+      <th>Last Name</th>
+      <th>Contact Number</th>
+      <th>Address</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |project| %>
+      <tr>
+        <td><%= project.first_name %></td>
+        <td><%= project.last_name %></td>
+        <td><%= project.contact_no %></td>
+        <td><%= project.address %></td>
+
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_record_path(project) %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+       
+             
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Records', new_record_path %>
